@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Diabetes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Diagnóstico de Diabetes</h2>
+            </div>
+            <div class="card-body">
+                <form action="/predict" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-3"><label>Embarazos</label><input type="number" name="p" class="form-control" required></div>
+                        <div class="col-md-3"><label>Glucosa</label><input type="number" name="g" class="form-control" required></div>
+                        <div class="col-md-3"><label>Presión</label><input type="number" name="bp" class="form-control" required></div>
+                        <div class="col-md-3"><label>Grosor Piel</label><input type="number" name="st" class="form-control" required></div>
+                        <div class="col-md-3"><label>Insulina</label><input type="number" name="i" class="form-control" required></div>
+                        <div class="col-md-3"><label>IMC</label><input type="number" step="0.1" name="bmi" class="form-control" required></div>
+                        <div class="col-md-3"><label>Pedigrí</label><input type="number" step="0.01" name="dpf" class="form-control" required></div>
+                        <div class="col-md-3"><label>Edad</label><input type="number" name="age" class="form-control" required></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-4">Predecir Resultado</button>
+                </form>
+
+                {% if prediction_text %}
+                <div class="alert alert-info mt-4 text-center">
+                    <h4>{{ prediction_text }}</h4>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
